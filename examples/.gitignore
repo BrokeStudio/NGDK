@@ -1,0 +1,6 @@
+obj
+out
+data/*.c
+data/*.h
+data/*.bin
+data/*.ktm

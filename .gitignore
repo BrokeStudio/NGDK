@@ -1,52 +1,20 @@
-# Prerequisites
-*.d
+# TEMP
+_kannagi
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# bin
+bin/m68k
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# NGDK
+obj
 
-# Precompiled Headers
-*.gch
-*.pch
+# examples
+examples/obj
+#examples/out
+examples/data/*.c
+examples/data/*.h
+examples/data/*.bin
+examples/data/*.ktm
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# tools
+tools_src/*/obj
+tools_src/*/bin

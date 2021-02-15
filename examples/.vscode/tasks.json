@@ -1,0 +1,103 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "1.0.0",
+    "command": "cmd",
+    "type": "shell",
+    "args": ["/C"],
+    "tasks": [
+        {
+            "group": "build",
+            "label": "make - all",
+            "command": "${env:NGDK}\\bin\\make",
+            "args": [
+                "-f",
+                "${env:NGDK}\\makefile"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "group": "build",
+            "label": "make - build",
+            "command": "${env:NGDK}\\bin\\make",
+            "args": [
+                "-f",
+                "${env:NGDK}\\makefile",
+                "build"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "group": "build",
+            "label": "make - ressources",
+            "command": "${env:NGDK}\\bin\\make",
+            "args": [
+                "-f",
+                "${env:NGDK}\\makefile",
+                "ressources"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "group": "build",
+            "label": "batch - build",
+            "type": "shell",
+            "command": "compile.bat",
+            "args": [
+                "-s"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "group": "build",
+            "label": "batch - build+ressources",
+            "type": "shell",
+            "command": "compile.bat",
+            "args": [
+                "-s",
+                "--res"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
