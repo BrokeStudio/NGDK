@@ -13,7 +13,7 @@ void example5(void )
 	NG_Sprite_Clear_VRAM(); //Clear VRAM Sprite
 	NG_Fix_Clear(); //Clear Fix
 
-	NG_Set_Backdrop_Color(NG_COLOR(7, 7, 7)); //Backdrop color R, G, B (0-15)
+	NG_Backdrop_Color_Set(NG_COLOR(7, 7, 7)); //Backdrop color R, G, B (0-15)
 
 	//MAP
 	NG_Palette_Load(tile1_pal_data, 16); //Load palette, PAL : 16

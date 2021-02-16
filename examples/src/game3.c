@@ -41,7 +41,7 @@ void __attribute__((optimize("-O3"), noinline)) game3(void )
 	NG_Sprite_Clear_VRAM(); //Clear VRAM Sprite
 	NG_Fix_Clear(); //Clear Fix
 
-	NG_Set_Backdrop_Color(NG_COLOR(7, 7, 7)); //Backdrop color R, G, B (0-15)
+	NG_Backdrop_Color_Set(NG_COLOR(7, 7, 7)); //Backdrop color R, G, B (0-15)
 
 	//Load Palette (FIX 0-15)
 	NG_Palette_Load(palette_ng, 0); //Load palette, palette index

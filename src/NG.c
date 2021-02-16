@@ -210,7 +210,7 @@ void NG_Palette_Load_N(const void *palette, u16 index, u16 n)
 		);
 }
 
-void NG_Set_Backdrop_Color(u16 color)
+void NG_Backdrop_Color_Set(u16 color)
 {
 	NG_arg1_u16 = color;
 	asm (

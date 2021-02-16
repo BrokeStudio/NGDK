@@ -1,6 +1,6 @@
 #define NG_WaitVBlank NG_Wait_VBlank
 
-#define NG_BGColor NG_Set_Backdrop_Color
+#define NG_BGColor NG_Backdrop_Color_Set
 
 #define NG_Joypad1 NG_Joypad1_Read
 #define NG_Joypad2 NG_Joypad2_Read

@@ -129,7 +129,7 @@
  */
 #define itoi16(it16) (it16 >> 16)
 
-#define NG_MAX_SPR 384
+#define NG_MAX_SPR 380
 #define NG_JOYPAD_INIT {0, 0, 0, 0, 0, 0, 0, 0}
 
 /**
@@ -241,7 +241,7 @@ void NG_Wait_VBlank(void);
  * 
  * @param color Color (NG_COLOR macro can be used)
  */
-void NG_Set_Backdrop_Color(u16 color);
+void NG_Backdrop_Color_Set(u16 color);
 
 /**
  * @brief Reads joypad 1.
