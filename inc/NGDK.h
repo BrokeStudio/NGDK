@@ -58,6 +58,12 @@
 #define ftoi7(ft7) (u16)(ft7 * 128)
 
 /**
+ * @brief Converts double to fix16 8.8.
+ * 
+ */
+#define ftoi8(ft8) (u16)(ft8 * 256)
+
+/**
  * @brief Converts double to fix32 30.2.
  * 
  */
