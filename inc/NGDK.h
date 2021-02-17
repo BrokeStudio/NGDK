@@ -43,97 +43,97 @@
  * @brief Converts double to fix16 14.2.
  * 
  */
-#define ftoi2(ft2) (u16)(ft2 * 4)
+#define ftoi2(ft2) (u16)((ft2) * 4)
 
 /**
  * @brief Converts double to fix16 12.4.
  * 
  */
-#define ftoi4(ft4) (u16)(ft4 * 16)
+#define ftoi4(ft4) (u16)((ft4) * 16)
 
 /**
  * @brief Converts double to fix16 9.7.
  * 
  */
-#define ftoi7(ft7) (u16)(ft7 * 128)
+#define ftoi7(ft7) (u16)((ft7) * 128)
 
 /**
  * @brief Converts double to fix16 8.8.
  * 
  */
-#define ftoi8(ft8) (u16)(ft8 * 256)
+#define ftoi8(ft8) (u16)((ft8) * 256)
 
 /**
  * @brief Converts double to fix32 30.2.
  * 
  */
-#define ftol2(ft2) (u32)(ft2 * 4)
+#define ftol2(ft2) (u32)((ft2) * 4)
 
 /**
  * @brief Converts double to fix32 30.4.
  * 
  */
-#define ftol4(ft4) (u32)(ft4 * 16)
+#define ftol4(ft4) (u32)((ft4) * 16)
 
 /**
  * @brief Converts double to fix32 25.7.
  * 
  */
-#define ftol7(ft7) (u32)(ft7 * 128)
+#define ftol7(ft7) (u32)((ft7) * 128)
 
 /**
  * @brief Converts double to fix32 24.8.
  * 
  */
-#define ftol8(ft8) (u32)(ft8 * 256)
+#define ftol8(ft8) (u32)((ft8) * 256)
 
 /**
  * @brief Converts double to fix32 20.12.
  * 
  */
-#define ftol12(ft12) (u32)(ft12 * 4096)
+#define ftol12(ft12) (u32)((ft12) * 4096)
 
 /**
  * @brief Converts double to fix32 16.16.
  * 
  */
-#define ftol16(ft16) (u32)(ft16 * 65536)
+#define ftol16(ft16) (u32)((ft16) * 65536)
 
 /**
  * @brief Converts fix xx.2 to unsigned.
  * 
  */
-#define itoi2(it2) (it2 >> 2)
+#define itoi2(it2) ((it2) >> 2)
 
 /**
  * @brief Converts fix xx.4 to unsigned.
  * 
  */
-#define itoi4(it4) (it4 >> 4)
+#define itoi4(it4) ((it4) >> 4)
 
 /**
  * @brief Converts fix xx.7 to unsigned.
  * 
  */
-#define itoi7(it7) (it7 >> 7)
+#define itoi7(it7) ((it7) >> 7)
 
 /**
  * @brief Converts fix xx.8 to unsigned.
  * 
  */
-#define itoi8(it8) (it8 >> 8)
+#define itoi8(it8) ((it8) >> 8)
 
 /**
  * @brief Converts fix xx.12 to unsigned.
  * 
  */
-#define itoi12(it12) (it12 >> 12)
+#define itoi12(it12) ((it12) >> 12)
 
 /**
  * @brief Converts fix xx.16 to unsigned.
  * 
  */
-#define itoi16(it16) (it16 >> 16)
+#define itoi16(it16) ((it16) >> 16)
 
 #define NG_MAX_SPR 380
 #define NG_JOYPAD_INIT {0, 0, 0, 0, 0, 0, 0, 0}
