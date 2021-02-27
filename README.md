@@ -2,6 +2,7 @@
 
 - NGDK discord server: https://discord.gg/2VCJN5c
 - Neo Geo documentation: https://wiki.neogeodev.org/index.php?title=Main_Page
+- More Neo Geo interesting stuff here: https://www.chibiakumas.com/68000/platform3.php
 
 ## Installation
 ### Windows

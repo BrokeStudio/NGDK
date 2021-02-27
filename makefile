@@ -22,7 +22,9 @@ CC=$(BIN)/m68k/bin/m68k-elf-gcc
 LD=$(BIN)/m68k/bin/m68k-elf-ld
 
 SFLAGS=-O0 -m68000 -I"$(INC)" -I"data"
-CFLAGS=-O1 -m68000 -I"$(INC)" -I"data"
+#CFLAGS=-O3 -fuse-linker-plugin -fno-web -fno-gcse -fno-unit-at-a-time -fomit-frame-pointer -flto -Wall -Wextra -Wno-shift-negative-value -Wno-main -Wno-unused-parameter -fno-builtin -m68000 -I"$(INC)" -I"data"
+CFLAGS=-O3 -Wall -Wextra -m68000 -I"$(INC)" -I"data"
+#CFLAGS=-m68000 -O1 -Wall -fomit-frame-pointer -ffast-math -fno-builtin -nostartfiles -nodefaultlibs -I"$(INC)" -I"data"
 
 LFLAGS=--oformat binary -Ttext -0x00 -Tbss 0x100020 -L"$(LIB)"
 

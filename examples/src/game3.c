@@ -294,7 +294,7 @@ void __attribute__((optimize("-O3"), noinline)) game3(void )
 	}
 }
 
-void __attribute__((noinline)) NG_BulletPosition(u16 pile,u16 offset,u16 n)
+void NG_BulletPosition(u16 pile,u16 offset,u16 n)
 {
 	if(pile == 0)
 		NG_arg1_u32 = (u32)NG_Bullet_Pile1;
@@ -379,7 +379,7 @@ void __attribute__((noinline)) NG_BulletPosition(u16 pile,u16 offset,u16 n)
 		);
 }
 
-void __attribute__((noinline)) NG_BulletUpdatePosition(u16 id,u16 n)
+void NG_BulletUpdatePosition(u16 id,u16 n)
 {
 	NG_arg1_u16 = id;
 	NG_arg2_u16 = n;
@@ -459,7 +459,7 @@ void __attribute__((noinline)) NG_BulletUpdatePosition(u16 id,u16 n)
 }
 
 
-void __attribute__((noinline)) NG_BulletUpdate(u16 id,u16 n)
+void NG_BulletUpdate(u16 id,u16 n)
 {
 	NG_arg1_u16 = id;
 	NG_arg2_u16 = n;
@@ -513,7 +513,7 @@ void __attribute__((noinline)) NG_BulletUpdate(u16 id,u16 n)
 		);
 }
 
-void __attribute__((noinline)) NG_BulletUpdateTile(u16 id,u16 n)
+void NG_BulletUpdateTile(u16 id,u16 n)
 {
 	NG_arg1_u16 = id;
 	NG_arg2_u16 = n;

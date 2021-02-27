@@ -3,7 +3,7 @@
  * @brief Neo Geo Development Kit (NGDK)
  * @author Kannagi
  * @author Antoine Gohin
- * @version 0.71
+ * @version 0.72
  * @date 10/2019 - 02/2021
  *
  * TODO LIST
@@ -17,7 +17,7 @@
 #ifndef __NGDK__
 #define __NGDK__
 
-#define NGDK_VERSION 71
+#define NGDK_VERSION 72
 
 // Legacy functions names support
 #include "defines.h"
@@ -136,7 +136,7 @@
 #define itoi16(it16) ((it16) >> 16)
 
 #define NG_MAX_SPR 380
-#define NG_JOYPAD_INIT {0, 0, 0, 0, 0, 0, 0, 0}
+#define NG_JOYPAD_INIT { 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 /**
  * @brief Generates shifted index for fix palette.
@@ -305,6 +305,22 @@ void NG_Fix_Palette(u16 pal);
  * @param y Y position (tile 0-27)
  */
 void NG_Fix_Print_Tile(u16 id, u16 x, u16 y);
+
+/**
+ * @brief Copy a buffer to fix layer VRAM.
+ * 
+ * @param ptr Pointer to buffer
+ * Buffer format is as follow, and uses words:
+ * 
+ * mode, x, y, n, data, (...), [mode, x, y, n, data, (...),] 0xffff
+ * 
+ * mode: 0 is for horizontal update | 1 is for vertical update
+ * x: X position (tile 0-39)
+ * y: Y position (tile 0-27)
+ * data: tile + palette data
+ * 0xffff: end of buffer (anything different than 0 and 1)
+ */
+void NG_Fix_Update(const void *ptr);
 
 /**
  * @brief Prints CPU usage in percentage on fix layer.

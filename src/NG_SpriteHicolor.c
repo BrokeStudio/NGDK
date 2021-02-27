@@ -12,8 +12,8 @@ void NG_Sprite_HiColor_Init(u16 id, u16 x, u16 y, u16 width, u16 height, u16 til
 	NG_Sprites[id].tile = tile;
 	NG_Sprites[id].flags = flags;
 
-	NG_Sprites[id].x = 8 + x;
-	NG_Sprites[id].y = 15 + y;
+	NG_Sprites[id].x = x;
+	NG_Sprites[id].y = y;
 
 	id++;
 	NG_Sprites[id].width = width;
@@ -22,11 +22,11 @@ void NG_Sprite_HiColor_Init(u16 id, u16 x, u16 y, u16 width, u16 height, u16 til
 	NG_Sprites[id].tile = tile + (width * height);
 	NG_Sprites[id].flags = flags + 0x0100;
 
-	NG_Sprites[id].x = 8 + x;
-	NG_Sprites[id].y = 15 + y;
+	NG_Sprites[id].x = x;
+	NG_Sprites[id].y = y;
 }
 
-void __attribute__((noinline)) NG_Sprite_HiColor_VRAM_Init(u16 id)
+void NG_Sprite_HiColor_VRAM_Init(u16 id)
 {
 	NG_arg1_u16 = id;
 	asm (
@@ -61,6 +61,7 @@ void __attribute__((noinline)) NG_Sprite_HiColor_VRAM_Init(u16 id)
 		"move.w  %d0,(%a1)\n	"
 
 		"move.w  4(%a0),%d0\n	" //y
+		"addi.w  #15,%d0\n	"
 		"eor.w   #0xFFFF,%d0\n	"
 		"asl.w   #7,%d0\n	"
 		"or.w    %d4,%d0\n	"
@@ -139,7 +140,7 @@ void __attribute__((noinline)) NG_Sprite_HiColor_VRAM_Init(u16 id)
 		);
 }
 
-void __attribute__((noinline)) NG_Sprite_HiColor_Tiles_Update(u16 id)
+void NG_Sprite_HiColor_Tiles_Update(u16 id)
 {
 	NG_arg1_u16 = id;
 	asm (
@@ -400,7 +401,7 @@ void __attribute__((noinline)) NG_Sprite_HiColor_Tiles_Update(u16 id)
 		);
 }
 
-void __attribute__((noinline)) NG_Sprite_HiColor_Zoom_Update(u16 id)
+void NG_Sprite_HiColor_Zoom_Update(u16 id)
 {
 	NG_arg1_u16 = id;
 	asm (
@@ -411,7 +412,6 @@ void __attribute__((noinline)) NG_Sprite_HiColor_Zoom_Update(u16 id)
 		"lea     VRAM_RW,%a1\n	"
 
 		"move.w  NG_arg1_u16,%d0\n	"
-		"andi.w  #0x7F,%d0\n	"
 		"asl.w   #4,%d0\n	"
 		"add.w   %d0,%a0\n	"
 
@@ -434,7 +434,7 @@ void __attribute__((noinline)) NG_Sprite_HiColor_Zoom_Update(u16 id)
 		);
 }
 
-void __attribute__((noinline)) NG_Sprite_HiColor_Update(u16 id)
+void NG_Sprite_HiColor_Update(u16 id)
 {
 	NG_arg1_u16 = id;
 	asm (
@@ -447,7 +447,6 @@ void __attribute__((noinline)) NG_Sprite_HiColor_Update(u16 id)
 		"lea     VRAM_RW,%a2\n	"
 
 		"move.w  NG_arg1_u16,%d0\n	"
-		"andi.w  #0x7F,%d0\n	"
 		"asl.w   #4,%d0\n	"
 		"add.w   %d0,%a0\n	"
 
@@ -461,6 +460,7 @@ void __attribute__((noinline)) NG_Sprite_HiColor_Update(u16 id)
 
 		//Y position , size sprite
 		"move.w 4(%a0),%d0\n	"
+		"addi.w #15,%d0\n	"
 		"eor.w  #0xFFFF,%d0\n	"
 		"asl.w  #7,%d0\n	"
 		"or.w   6(%a0),%d0\n	"
@@ -469,6 +469,7 @@ void __attribute__((noinline)) NG_Sprite_HiColor_Update(u16 id)
 
 		//X Position
 		"move.w  8(%a0),%d0\n	"
+		"addq.w  #7,%d0\n	"
 		"asl.w   #7,%d0\n	"
 		"move.w  %d0,(%a2)\n	"
 
@@ -482,11 +483,11 @@ void __attribute__((noinline)) NG_Sprite_HiColor_Update(u16 id)
 		"move.w  2(%a0),(%a2)\n	"
 
 		//Y position , size sprite
-		"move.w %d1,%d0\n	"
-		"move.w %d0,(%a2)\n	"
+		"move.w %d1,(%a2)\n	"
 
 		//X Position
 		"move.w  8(%a0),%d0\n	"
+		"addq.w  #7,%d0\n	"
 		"asl.w   #7,%d0\n	"
 		"move.w  %d0,(%a2)\n	"
 
