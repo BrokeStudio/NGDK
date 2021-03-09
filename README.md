@@ -1,4 +1,4 @@
-# NGDK - Neo Geo Development Kit (beta version 0.71)
+# NGDK - Neo Geo Development Kit (beta version 0.72)
 
 - NGDK discord server: https://discord.gg/2VCJN5c
 - Neo Geo documentation: https://wiki.neogeodev.org/index.php?title=Main_Page
@@ -8,12 +8,10 @@
 ### Windows
 
 1. Download the NGDK archive from the Download page and unzip it where it suits to you, for instance `D:\NGDK`.
-2. Download prebuilt Windows Toolchain for m68k-elf (`m68k-elf-gcc4.8.0.exe`) here: https://gnutoolchains.com/m68k-elf/
-3. Download and install a Neo Geo emulator (for example http://www.kawaks.fr/).
-4. Extract `m68k-elf-gcc4.8.0.exe` in `bin\m68k`.
-5. Define `NGDK` environment variable with your installation path in unix path format (D:/NGDK).
-6. Define `NGDK_WIN` which still point to your installation path but in windows path format (D:\NGDK).
-7. Now verify everything is properly set up by trying to compile the library:
+2. Download and install a Neo Geo emulator (for example http://www.kawaks.fr/).
+3. Define `NGDK` environment variable with your installation path in unix path format (D:/NGDK).
+4. Define `NGDK_WIN` which still point to your installation path but in windows path format (D:\NGDK).
+5. Now verify everything is properly set up by trying to compile the library:
 
 ```cmd
 %NGDK_WIN%\bin\make -f %NGDK_WIN%\makelib

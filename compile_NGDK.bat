@@ -7,14 +7,19 @@ set BIN=%NGDK_WIN%\bin
 set INC=%NGDK_WIN%\inc
 
 set SRC=src
-set OBJ=src\obj
+set OBJ=obj
 set OUT=lib
 
-set CC=%BIN%\m68k\bin\m68k-elf-gcc.exe
-set AR=%BIN%\m68k\bin\m68k-elf-ar.exe
+set GCC_PATH=%BIN%\gcc
 
-set SFLAGS=-O0 -m68000 -I"%INC%"
-set CFLAGS=-O1 -m68000 -I"%INC%"
+set CC=%GCC_PATH%\gcc.exe
+set AR=%GCC_PATH%\ar.exe
+
+set DEFAULT_FLAGS=-Wall -Wextra -Wno-shift-negative-value -Wno-main -Wno-unused-parameter -fno-builtin -fno-web -fno-gcse -fno-unit-at-a-time -fomit-frame-pointer -fno-inline-functions -m68000
+set INCS=-iquote"%INC%"
+
+set SFLAGS=-B"%GCC_PATH%" -O0 %DEFAULT_FLAGS% %INCS%
+set CFLAGS=-B"%GCC_PATH%" -O3 %DEFAULT_FLAGS% %INCS%
 
 :: # Create/Clear obj folder if needed
 if not exist %OBJ%\ (

@@ -30,8 +30,6 @@ void example4(void)
 	//NG_Sprite_VRAM_ID_Get gives real ID, max 380
 	NG_Fix_Print_u16(NG_Sprite_VRAM_ID_Get(), 0, 2);
 
-	int i;
-
 	NG_joypad joypad1 = NG_JOYPAD_INIT; //Init Joypad
 
 	u16 flip = 0;

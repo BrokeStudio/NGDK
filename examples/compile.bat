@@ -6,7 +6,6 @@ setlocal enabledelayedexpansion
 set ROMNAME=ssideki
 set ROMNUM=052
 
-
 set "SILENT="
 set RES=0
 
@@ -19,11 +18,16 @@ set SRC=src
 set OBJ=obj
 set OUT=out
 
-set CC=%BIN%\m68k\bin\m68k-elf-gcc.exe
-set LD=%BIN%\m68k\bin\m68k-elf-ld.exe
+set GCC_PATH=%BIN%\gcc
 
-set SFLAGS=-O0 -m68000 -I"%LIBINC%" -I"data"
-set CFLAGS=-O1 -m68000 -I"%LIBINC%" -I"data"
+set CC=%GCC_PATH%\gcc.exe
+set LD=%GCC_PATH%\ld.exe
+
+set DEFAULT_FLAGS=-Wall -Wextra -Wno-shift-negative-value -Wno-main -Wno-unused-parameter -fno-builtin -fno-web -fno-gcse -fno-unit-at-a-time -fomit-frame-pointer -fno-inline-functions
+set INCS=-isystem"%LIBINC%" -iquote"data"
+
+set SFLAGS=-B"%GCC_PATH%" -O0 %DEFAULT_FLAGS% %INCS%
+set CFLAGS=-B"%GCC_PATH%" -O3 %DEFAULT_FLAGS% %INCS%
 
 set LFLAGS=--oformat binary -Ttext -0x00 -Tbss 0x100020 -L"%LIBLIB%"
 

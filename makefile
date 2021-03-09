@@ -1,12 +1,9 @@
 ROMNAME=ssideki
 ROMNUM=052
 
-SILENT=
-RES=0
-
 BIN=$(NGDK)/bin
-INC=$(NGDK)/inc
-LIB=$(NGDK)/lib
+LIBINC=$(NGDK)/inc
+LIBLIB=$(NGDK)/lib
 TOOLS=$(NGDK)/bin/tools
 
 SRC=src
@@ -18,20 +15,22 @@ MKDIR=$(BIN)/mkdir
 CP=$(BIN)/cp
 RM=$(BIN)/rm
 
-CC=$(BIN)/m68k/bin/m68k-elf-gcc
-LD=$(BIN)/m68k/bin/m68k-elf-ld
+RM=$(BIN)/rm
 
-SFLAGS=-O0 -m68000 -I"$(INC)" -I"data"
-#CFLAGS=-O3 -fuse-linker-plugin -fno-web -fno-gcse -fno-unit-at-a-time -fomit-frame-pointer -flto -Wall -Wextra -Wno-shift-negative-value -Wno-main -Wno-unused-parameter -fno-builtin -m68000 -I"$(INC)" -I"data"
-CFLAGS=-O3 -Wall -Wextra -m68000 -I"$(INC)" -I"data"
-#CFLAGS=-m68000 -O1 -Wall -fomit-frame-pointer -ffast-math -fno-builtin -nostartfiles -nodefaultlibs -I"$(INC)" -I"data"
+GCC_PATH=$(BIN)/gcc
 
-LFLAGS=--oformat binary -Ttext -0x00 -Tbss 0x100020 -L"$(LIB)"
+CC=$(GCC_PATH)/gcc
+LD=$(GCC_PATH)/ld
 
-#SRC_S=$(wildcard $(SRC)*.s))
+DEFAULT_FLAGS=-Wall -Wextra -Wno-shift-negative-value -Wno-main -Wno-unused-parameter -fno-builtin -fno-web -fno-gcse -fno-unit-at-a-time -fomit-frame-pointer -fno-inline-functions -m68000
+INCS=-isystem"$(LIBINC)" -iquote"data"
+
+SFLAGS=-B"$(GCC_PATH)" -O0 $(DEFAULT_FLAGS) $(INCS)
+CFLAGS=-B"$(GCC_PATH)" -O3 $(DEFAULT_FLAGS) $(INCS)
+
+LFLAGS=--oformat binary -Ttext -0x00 -Tbss 0x100020 -L"$(LIBLIB)"
+
 OBJ_S=$(patsubst $(SRC)/%.s,$(OBJ)/%.o,$(wildcard $(SRC)/*.s))
-
-#SRC_C=$(wildcard $(SRC)*.c)
 OBJ_C=$(patsubst $(SRC)/%.c,$(OBJ)/%.o,$(wildcard $(SRC)/*.c))
 
 all: ressources build

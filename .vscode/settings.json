@@ -1,20 +1,5 @@
 {
   "editor.tabSize": 4,
   "editor.insertSpaces": false,
-"editor.detectIndentation": false,
-"files.associations": {
-	"xiosbase": "c",
-	"array": "c",
-	"vector": "c",
-	"xstring": "c",
-	"xutility": "c",
-	"string": "c",
-	"locale": "c",
-	"thread": "c",
-	"xlocale": "c",
-	"xlocmes": "c",
-	"xlocmon": "c",
-	"xlocnum": "c",
-	"xloctime": "c"
-}
+  "editor.detectIndentation": false
 }

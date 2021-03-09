@@ -1,20 +1,26 @@
-BIN=$(NGDK)/bin/
-INC=$(NGDK)/inc/
+BIN=$(NGDK)/bin
+INC=$(NGDK)/inc
 
-SRC=$(NGDK)/src/
-OBJ=$(NGDK)/obj/
-OUT=$(NGDK)/lib/
+SRC=$(NGDK)/src
+OBJ=$(NGDK)/obj
+OUT=$(NGDK)/lib
 
-MKDIR=$(BIN)mkdir
+MKDIR=$(BIN)/mkdir
+RM=$(BIN)/rm
 
-CC=$(BIN)m68k/bin/m68k-elf-gcc
-AR=$(BIN)m68k/bin/m68k-elf-ar
+GCC_PATH=$(BIN)/gcc
 
-SFLAGS=-O0 -m68000 -I"$(INC)"
-CFLAGS=-O3 -Wall -Wextra -fno-inline-functions -fno-builtin -fno-web -fno-gcse -fno-unit-at-a-time -fomit-frame-pointer -m68000 -I"$(INC)"
+CC=$(GCC_PATH)/gcc
+AR=$(GCC_PATH)/ar
 
-OBJ_C= $(patsubst $(SRC)%.c,$(OBJ)%.o,$(wildcard $(SRC)*.c))
-ASM_C= $(patsubst $(SRC)%.c,$(OBJ)%.s,$(wildcard $(SRC)*.c))
+DEFAULT_FLAGS=-Wall -Wextra -Wno-shift-negative-value -Wno-main -Wno-unused-parameter -fno-builtin -fno-web -fno-gcse -fno-unit-at-a-time -fomit-frame-pointer -fno-inline-functions -m68000
+INCS=-iquote"$(INC)"
+
+SFLAGS=-B"$(GCC_PATH)" -O0 $(DEFAULT_FLAGS) $(INCS)
+CFLAGS=-B"$(GCC_PATH)" -O1 $(DEFAULT_FLAGS) $(INCS)
+
+OBJ_C= $(patsubst $(SRC)/%.c,$(OBJ)/%.o,$(wildcard $(SRC)/*.c))
+ASM_C= $(patsubst $(SRC)/%.c,$(OBJ)/%.s,$(wildcard $(SRC)/*.c))
 
 build: $(OUT) $(OBJ) lib clean
 
@@ -27,13 +33,13 @@ $(OBJ):
 	$(MKDIR) $(OBJ)
 
 lib: $(OBJ_C)
-	$(AR) -r -s $(OUT)libNGDK.a $^
+	$(AR) -r -s $(OUT)/libNGDK.a $^
 
-$(OBJ)%.o : $(SRC)%.c
+$(OBJ)/%.o : $(SRC)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ)%.s : $(SRC)%.c
+$(OBJ)/%.s : $(SRC)/%.c
 	$(CC) $(CFLAGS) -S $< -o $@
 
 clean:
-	$(RM) $(OBJ)*.o
+	$(RM) $(OBJ)/*.o

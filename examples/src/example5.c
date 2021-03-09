@@ -81,7 +81,7 @@ void example5(void )
 		{
 			if(camX > 0){
 				camX -= 2;
-				NG_Sprites[0].x = -camX + 8;
+				NG_Sprites[0].x = -camX;
 				NG_Background_Scroll_X(0, -1, map1);
 				NG_Background_Scroll_X(1, -1, map2);
 			}
@@ -91,7 +91,7 @@ void example5(void )
 		{
 			if(camX < ((MAP_WIDTH-20) * 16)){
 				camX += 2;
-				NG_Sprites[0].x = -camX + 8;
+				NG_Sprites[0].x = -camX;
 				NG_Background_Scroll_X(0, 20, map1);
 				NG_Background_Scroll_X(1, 20, map2);
 			}

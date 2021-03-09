@@ -231,8 +231,8 @@ typedef struct
  */
 typedef struct
 {
-	int current, previous, frame, frameCounter, status;
-}NG_Animation;
+	u16 current, previous, frame, frameCounter, status;
+} NG_Animation;
 
 extern NG_Sprite NG_Sprites[NG_MAX_SPR];
 

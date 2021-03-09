@@ -97,7 +97,7 @@ void game1(void )
 	NG_Animation anim2;
 	NG_Anim_Init(&anim2);
 
-	u16 x = 100, y = (16*9)+8;
+	u16 x = 100, y = (16*9); 
 	u16 mx, my;
 	u16 speedx = ftoi2(1.5);
 	s16 bgx = 0;
@@ -158,9 +158,9 @@ void game1(void )
 		}
 
 		if(absx > ftoi2(660) )
-			y = (16*11)+8;
+			y = (16*11);
 		else
-			y = (16*9)+8;
+			y = (16*9);
 
 
 
